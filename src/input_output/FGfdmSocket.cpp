@@ -138,7 +138,7 @@ FGfdmSocket::FGfdmSocket(int port, int protocol, int direction) // assumes UDP
   connected = false;
   Protocol = (ProtocolType)protocol;
   Direction = (DirectionType) direction;
- 
+
 #if defined(_MSC_VER) || defined(__MINGW32__)
   if (!LoadWinSockDLL()) return;
 #endif
@@ -153,14 +153,14 @@ FGfdmSocket::FGfdmSocket(int port, int protocol, int direction) // assumes UDP
 #endif
     cout << "Creating UDP input socket on port " << port << endl;
   }
-  
-    if (sckt != -1) { 
+
+    if (sckt != -1) {
       memset(&scktName, 0, sizeof(struct sockaddr_in));
       scktName.sin_family = AF_INET;
       scktName.sin_port = htons(port);
       scktName.sin_addr.s_addr = htonl(INADDR_ANY);
       int len = sizeof(struct sockaddr_in);
-      if (bind(sckt, (struct sockaddr*)&scktName, len) != -1) { 
+      if (bind(sckt, (struct sockaddr*)&scktName, len) != -1) {
         cout << "Successfully bound to UDP input socket on port " << port << endl <<endl;
         connected = true;
       } else {                // unsuccessful
@@ -169,8 +169,8 @@ FGfdmSocket::FGfdmSocket(int port, int protocol, int direction) // assumes UDP
     } else {          // unsuccessful
       cout << "Could not create socket for UDP input, error = " << errno << endl;
     }
-    
-  
+
+
   Debug(0);
 }
 
@@ -320,15 +320,15 @@ string FGfdmSocket::Receive(void)
     }
 #endif
   }
-  
+
   // this is for FGUDPInputSocket
   if (sckt >= 0 && Protocol == ptUDP) {
     struct sockaddr addr;
     socklen_t fromlen = sizeof addr;
     num_chars = recvfrom(sckt, buf, sizeof buf, 0, (struct sockaddr*)&addr, &fromlen);
-    if (num_chars != -1) data.append(buf, num_chars); 
+    if (num_chars != -1) data.append(buf, num_chars);
   }
-  
+
   return data;
 }
 
@@ -383,7 +383,7 @@ void FGfdmSocket::Append(const char* item)
 void FGfdmSocket::Append(double item)
 {
   if (buffer.tellp() > 0) buffer << ',';
-  buffer << std::setw(12) << std::setprecision(7) << item;
+  buffer << std::setw(12) << std::setprecision(9) << item;
 }
 
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
