@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<output name="localhost" type="SOCKET" protocol="UDP"  port="1138" rate="50">
+<!--  <position> ON </position> -->
+  <property> position/lat-geod-deg </property>
+  <property> position/long-gc-deg </property>
+  <property> position/h-sl-ft </property>
+
+  <property> velocities/v-north-fps </property>
+  <property> velocities/v-east-fps </property>
+  <property> velocities/v-down-fps </property>
+
+
+  <property> attitude/phi-rad </property>
+  <property> attitude/theta-rad </property>
+  <property> attitude/psi-rad </property>
+</output>
