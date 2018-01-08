@@ -344,7 +344,7 @@
   <autopilot file="c310ap">
 
     <!-- Roll channel A/P gains -->
-    
+
     <property value="50.0"> ap/roll-pid-kp </property>
     <property value="5.0"> ap/roll-pid-ki </property>
     <property value="17.0"> ap/roll-pid-kd </property>
@@ -646,7 +646,7 @@
                               0.3491	0.1097
                               0.785     0.707
                               1.57      1.00
-                              3.14      0.01 
+                              3.14      0.01
                           </tableData>
                       </table>
                 </product>
@@ -781,7 +781,7 @@
                               -3.1416	 0.0
                               -2.356	 0.97
                               -1.57	 0.0
-                              -0.785	-0.970 
+                              -0.785	-0.970
                               -0.3000	-1.0100
                               -0.2820	-1.1720
                               -0.2470	-1.0870
@@ -1050,6 +1050,9 @@
             </function>
         </axis>
     </aerodynamics>
+
+    <input port="1137"/>
+
   <!--
     <output name="C310.csv" type="CSV" rate="5">
         <simulation> OFF </simulation>
